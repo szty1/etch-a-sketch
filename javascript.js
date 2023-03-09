@@ -49,4 +49,4 @@ const gridContainer = document.querySelector('.gridContainer');
 sizeButtons.forEach(key => key.addEventListener('click', sizeButtonClicked));
 clrButton.addEventListener('click', clrButtonClicked);
 
-console.log();
+populateGrid(gridSize);
