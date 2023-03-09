@@ -9,6 +9,7 @@ function populateGrid(gridSize) {
         for (let j = 0; j < gridSize; j++) {
             const gridItem = document.createElement('div');
             gridItem.classList.add('gridItem');
+            gridItem.addEventListener('mouseover', gridItemMouseOver);
             gridRow.appendChild(gridItem);
         }
     }
@@ -33,6 +34,12 @@ function sizeButtonClicked(e) {
 function clrButtonClicked(e) {
     clearGrid();
     populateGrid(gridSize);
+}
+
+function gridItemMouseOver(e) {
+    console.log(e.target);
+    e.target.removeEventListener('mouseover', gridItemMouseOver);
+    e.target.classList.add('painted');
 }
 
 const sizeButtons = Array.from(document.querySelectorAll('.gridSize'));
