@@ -21,8 +21,8 @@ function clearGrid() {
     }
 }
 
-function sizeButtonClicked(e) {
-    let size = e.target.attributes['data-size'].nodeValue;
+function sizeButtonClicked() {
+    let size = this.dataset.size;
     if (!size) return;
 
     gridSize = size;
@@ -31,15 +31,14 @@ function sizeButtonClicked(e) {
     populateGrid(gridSize);
 }
 
-function clrButtonClicked(e) {
+function clrButtonClicked() {
     clearGrid();
     populateGrid(gridSize);
 }
 
-function gridItemMouseOver(e) {
-    console.log(e.target);
-    e.target.removeEventListener('mouseover', gridItemMouseOver);
-    e.target.classList.add('painted');
+function gridItemMouseOver() {
+    this.removeEventListener('mouseover', gridItemMouseOver);
+    this.classList.add('painted');
 }
 
 const sizeButtons = Array.from(document.querySelectorAll('.gridSize'));
